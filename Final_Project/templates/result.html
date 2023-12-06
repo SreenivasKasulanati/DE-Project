@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Stroke Prediction Result</title>
+    <!-- Add any additional styling or CSS links here -->
+    <style>
+        body {
+            background-image: url('/static/images/bg1.jpg');
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #f1f1f3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 5px;
+            border: 2px solid #d6f7f2;
+            border-radius: 5px;
+            background-color: rgb(170, 243, 243);
+        }
+    </style>
+</head>
+<body>
+    <h1>Loan Eligibility Prediction</h1>
+    <div class="result">
+        <p><strong>As per the details provided the Loan can be: </strong></p>
+        <p id="predictionResult">Loading...</p>
+    </div>
+
+    <!-- Add any additional scripts or JavaScript here -->
+    <script>
+        // Get the prediction result from the JSON response
+        // Get the prediction result from the JSON response
+        var predictionResult = "{{ prediction_result }}";
+
+        // Update the content of the result paragraph
+        var resultParagraph = document.getElementById("predictionResult");
+
+        if (predictionResult === 'Approved') {
+            resultParagraph.innerText = 'Approved!';
+            resultParagraph.style.color = 'green';
+        } else if (predictionResult === 'Rejected') {
+            resultParagraph.innerText = 'Rejected!';
+            resultParagraph.style.color = 'red';
+        } else {
+            // Handle other cases if needed
+            resultParagraph.innerText = 'Unknown result.';
+            resultParagraph.style.color = 'black';
+        }
+
+    </script>
+</body>
+</html>
